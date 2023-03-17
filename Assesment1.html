@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Application Form</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+        *{
+            margin: 10px;
+            padding: 3px;
+        }
+        body{
+            background-image: url("zengigineering.jpg");
+            background-size: cover;
+        }
+        form{
+            margin: 10px;
+            padding: 10px;
+            background-color: white;
+        }
+        h2{
+            text-align: center;
+            color: white;
+            padding: 15px;
+        }
+        .form-group{
+            margin:10px;
+            padding: 0px;
+        }
+        input type[radio]{
+            margin-left: 5px;
+        }
+    </style>
+  </head>
+  <body>
+        <img src="Zuci-Logo.png"/>
+        <h2>Application Form</h2>
+            <form name="reg_form" onsubmit="return validate()">
+                <div class="form-group">
+                    <label for="name">1. Full Name:</label>
+                    <input type="text" class="form-control" name="name"/>
+                    <span id="nameErr" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">2. Email Address:</label>
+                    <input type="text" class="form-control" name="email"/>
+                    <span id="emailErr" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="mobile">3. Mobile Number:</label>
+                    <input type="text" class="form-control" name="mobile"/>
+                    <span id="mobileErr" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                  <label for="country">4. Country:</label>
+                  <select name="country" id="country">
+                    <option value="">Select</option>
+                    <option value="India">India</option>
+                    <option value="US">US</option>
+                    <option value="China">China</option>
+                  </select>
+                    <span id="countryErr" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="gender">5. Gender</label>
+                    <input type="radio" name="gender" id="gender" value="Male"/>Male
+                    <input type="radio" name="gender" id="gender" value="Female"/>Female
+                    <input type="radio" name="gender" id="gender" value="Others"/>Others
+                    <span id="genErr" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="hobby" placeholder="optional">6. Hobbies:<span>(optional)</span></p></label><br/>
+                    <input type="checkbox" name="sports" value="sports"/>&nbsp;Sports&nbsp;
+                    <input type="checkbox" name="movies" value="movies"/>&nbsp;Movies&nbsp;
+                    <input type="checkbox" name="music" value="music"/>&nbsp;Music&nbsp;
+                </div>
+                <div class="form-group">
+                    <button type="submit" style="width: 100%; background-color: blueviolet;" class="btn btn-success">Submit</button>
+                </div>
+        </form>
+
+        <script>
+
+function validate()
+        {
+            var name=document.reg_form.name;
+            var email=document.reg_form.email;
+            var mobile=document.reg_form.mobile;
+            var hobby=document.reg_form.hobby;
+            var coun=document.reg_form.country;
+            var gen=document.reg_form.gender;
+
+
+            if(name.value.length<=0)
+            {
+                document.getElementById('nameErr').innerHTML="Please enter your name";
+                name.focus();
+                return false;
+            }
+            else{
+                document.getElementById('nameErr').innerHTML="";
+                
+            }
+            if(email.value.length<=0)
+            {
+                document.getElementById('emailErr').innerHTML="Please enter your email address";
+                email.focus();
+                return false;
+            }
+            else{
+                document.getElementById('emailErr').innerHTML="";
+                
+            }
+            if(mobile.value.length<=0)
+            {
+                document.getElementById('mobileErr').innerHTML="Please enter your mobile number";
+                mobile.focus();
+                return false;
+            }
+            else{
+                document.getElementById('mobileErr').innerHTML="";
+                
+            }
+            if(coun.value.length<=0)
+            {
+                document.getElementById('countryErr').innerHTML="Select your country";
+                coun.focus();
+                return false;
+            }
+            else{
+                document.getElementById('countryErr').innerHTML="";
+            }
+            if(gen.value.length<=0)
+            {
+                document.getElementById('genErr').innerHTML="Select your gender";
+                gen.focus();
+                return false;
+            }
+            else{
+                document.getElementById('genErr').innerHTML="";
+            }
+            alert("Form is Submitted");
+            return true;  
+            }
+        </script>
+      
+  </body>
+</html>
